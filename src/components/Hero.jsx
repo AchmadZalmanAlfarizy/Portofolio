@@ -23,9 +23,9 @@ export default function Hero() {
       </div>
 
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col-reverse md:flex-row gap-12 items-center">
           {/* Text Content */}
-          <motion.div initial="hidden" animate="visible">
+          <motion.div initial="hidden" animate="visible" className="flex-1">
             <motion.div
               custom={0}
               variants={textVariants}
@@ -90,7 +90,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="flex justify-center"
+            className="flex justify-center flex-1"
           >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl blur-3xl opacity-30 animate-float" />

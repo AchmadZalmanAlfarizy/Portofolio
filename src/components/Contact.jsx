@@ -21,7 +21,7 @@ export default function Contact() {
       icon: <Send size={24} />,
       label: 'WhatsApp',
       value: '+62 899-926-8988',
-      href: 'https://wa.me/6289992268988',
+      href: 'https://wa.me/628999268988',
       color: 'from-green-600 to-emerald-600',
     },
     {
