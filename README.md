@@ -10,13 +10,6 @@ Website portofolio profesional yang dibuat dengan React, Tailwind CSS, dan Frame
 - **Component-Based**: Struktur React yang clean dan maintainable
 - **SEO Optimized**: Meta tags dan semantic HTML
 
-## 📦 Tech Stack
-
-- **React 18** - UI Library
-- **Vite** - Build tool & dev server
-- **Tailwind CSS v3** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lucide React** - Icon library
 
 ## 📋 Sections
 
@@ -71,57 +64,9 @@ src/
 └── main.jsx
 ```
 
-## 🎨 Customization
-
-### Ubah Warna
-Edit `tailwind.config.js` untuk customize theme colors.
-
-### Ubah Konten
-Setiap section adalah komponen React yang mudah diedit:
-
-```jsx
-// Contoh: Ubah nama di Hero.jsx
-<h1 className="text-5xl md:text-6xl font-bold">
-  Hi, I'm <span className="text-blue-400">Your Name</span>
-</h1>
-```
-
-### Ubah Projects
-Edit array `projects` di `Projects.jsx`:
-
-```jsx
-const projects = [
-  {
-    title: 'Your Project',
-    description: 'Project description...',
-    tech: ['React', 'Node.js'],
-    // ...
-  },
-];
-```
 
 ## 🚀 Deployment
 
-### Deploy ke Vercel
-```bash
-npm i -g vercel
-vercel
-```
-
-### Deploy ke Netlify
-```bash
-npm run build
-# Upload dist folder ke Netlify
-```
-
-### Deploy ke GitHub Pages
-Update `vite.config.js`:
-```js
-export default {
-  base: '/repository-name/',
-  // ...
-}
-```
 
 ## 📱 Browser Support
 
@@ -149,5 +94,3 @@ MIT License - Feel free to use this project!
 - GitHub: github.com/achmadzalman
 
 ---
-
-Made with ❤️ using React & Tailwind CSS
