@@ -12,52 +12,76 @@ export default function Projects() {
       title: 'Website Desa Pangedisan',
       description: 'Sistem informasi desa berbasis web yang digunakan untuk mengelola data dan informasi publik. Fitur meliputi manajemen data, tampilan informasi desa, serta pengelolaan konten menggunakan sistem CRUD.',
       tech: ['Laravel', 'MySQL', 'Bootstrap'],
-      image: '🏘️',
+      image: '/pangedisan/image.png',
       features: ['Manajemen Data Desa', 'Tampilan Informasi Publik', 'CRUD Content Management'],
       github: 'https://github.com/AchmadZalmanAlfarizy',
       screenshots: [
         '/pangedisan/image.png',
-        '/pangedisan/Screenshot 2026-05-12 152855.png',
-        '/pangedisan/Screenshot 2026-05-12 153146.png',
-        '/pangedisan/Screenshot 2026-05-12 153801.png',
-        '/pangedisan/Screenshot 2026-05-12 153900.png',
+        '/pangedisan/Screenshot 2026-05-19 154502.png',
+        '/pangedisan/Screenshot 2026-05-19 154600.png',
+        '/pangedisan/Screenshot 2026-05-19 154649.png',
+        '/pangedisan/Screenshot 2026-05-19 154751.png',
+        '/pangedisan/Screenshot 2026-05-19 154813.png',
+        '/pangedisan/Screenshot 2026-05-19 154835.png',
+        '/pangedisan/Screenshot 2026-05-19 154926.png',
+        '/pangedisan/Screenshot 2026-05-19 154950.png',
+        '/pangedisan/Screenshot 2026-05-19 155032.png',
+        '/pangedisan/Screenshot 2026-05-19 155225.png',
+        '/pangedisan/Screenshot 2026-05-19 155254.png',
+        '/pangedisan/Screenshot 2026-05-19 155315.png',
+        '/pangedisan/Screenshot 2026-05-19 155335.png',
+        '/pangedisan/Screenshot 2026-05-19 155352.png',
+        '/pangedisan/Screenshot 2026-05-19 155422.png',
       ],
     },
     {
       title: 'Website Booking Barbershop',
       description: 'Sistem booking online untuk memudahkan pelanggan melakukan reservasi secara real-time. Memiliki fitur pemilihan jadwal, pengelolaan booking, serta sistem validasi agar tidak terjadi bentrok waktu.',
       tech: ['React', 'PHP', 'MySQL'],
-      image: '💈',
+      image: '/barber/Screenshot 2026-05-19 152426.png',
       features: ['Real-time Booking', 'Jadwal Management', 'Validasi Waktu'],
       github: 'https://github.com/AchmadZalmanAlfarizy',
       screenshots: [
-        '/barber/Screenshot 2026-05-12 154301.png',
-        '/barber/Screenshot 2026-05-12 154401.png',
-        '/barber/Screenshot 2026-05-12 154632.png',
+        '/barber/image.png',
+        '/barber/Screenshot 2026-05-18 043132.png',
+        '/barber/Screenshot 2026-05-18 043222.png',
+        '/barber/Screenshot 2026-05-18 043309.png',
+        '/barber/Screenshot 2026-05-18 043348.png',
+        '/barber/Screenshot 2026-05-18 043420.png',
+        '/barber/Screenshot 2026-05-19 152426.png',
+        '/barber/Screenshot 2026-05-19 152646.png',
+        '/barber/Screenshot 2026-05-19 152747.png',
       ],
     },
     {
       title: 'E-Commerce Daging',
       description: 'Platform penjualan daging online dengan fitur keranjang belanja, checkout, dan manajemen produk. Sistem mendukung pengelolaan stok serta proses transaksi secara terstruktur.',
       tech: ['Laravel', 'React', 'MySQL'],
-      image: '🛒',
+      image: '/daging/image.png',
       features: ['Keranjang Belanja', 'Checkout System', 'Stock Management'],
       github: 'https://github.com/AchmadZalmanAlfarizy',
       screenshots: [
-        '/daging/Screenshot 2026-05-12 181545.png',
-        '/daging/Screenshot 2026-05-12 181723.png',
-        '/daging/Screenshot 2026-05-12 181759.png',
-        '/daging/Screenshot 2026-05-12 181855.png',
-        '/daging/Screenshot 2026-05-12 181933.png',
-        '/daging/Screenshot 2026-05-12 181951.png',
-        '/daging/Screenshot 2026-05-12 182053.png',
+        '/daging/image.png',
+        '/daging/Screenshot 2026-05-19 153242.png',
+        '/daging/Screenshot 2026-05-19 153340.png',
+        '/daging/Screenshot 2026-05-19 153408.png',
+        '/daging/Screenshot 2026-05-19 153506.png',
+        '/daging/Screenshot 2026-05-19 153620.png',
+        '/daging/Screenshot 2026-05-19 153655.png',
+        '/daging/Screenshot 2026-05-19 153800.png',
+        '/daging/Screenshot 2026-05-19 153839.png',
+        '/daging/Screenshot 2026-05-19 153925.png',
+        '/daging/Screenshot 2026-05-19 154023.png',
+        '/daging/Screenshot 2026-05-19 154044.png',
+        '/daging/Screenshot 2026-05-19 154104.png',
+        '/daging/Screenshot 2026-05-19 154124.png',
       ],
     },
     {
       title: 'Manajemen RT Desa Sedati Agung',
       description: 'Sistem administrasi RT berbasis web untuk pendataan warga, pengelolaan surat, dan laporan kegiatan. Termasuk fitur CRUD data warga serta pengelolaan arsip dokumen.',
       tech: ['Laravel', 'MySQL', 'Bootstrap'],
-      image: '📋',
+      image: '/sedati/Screenshot 2026-05-12 184044.png',
       features: ['Pendataan Warga', 'Manajemen Surat', 'Arsip Dokumen'],
       github: 'https://github.com/AchmadZalmanAlfarizy',
       screenshots: [
@@ -145,11 +169,13 @@ export default function Projects() {
               className="bg-gradient-to-br from-blue-600/5 to-cyan-600/5 border border-blue-600/20 rounded-2xl overflow-hidden card-hover group"
             >
               {/* Image Area */}
-              <div className="h-48 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center text-8xl relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 opacity-0 group-hover:opacity-100 transition-opacity"
+              <div className="h-48 relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="relative z-10 group-hover:scale-110 transition-transform">{project.image}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               </div>
 
               {/* Content */}
