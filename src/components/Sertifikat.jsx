@@ -28,6 +28,13 @@ export default function Sertifikat() {
       image: '/sertifikat/Screenshot 2026-06-25 053839.png',
       description: 'Sertifikat kompetensi kelulusan untuk kelas Belajar Dasar Pemrograman Web dari Dicoding',
     },
+    {
+      title: 'Belajar Membuat Aplikasi Web dengan React',
+      issuer: 'Dicoding Indonesia',
+      date: '25 Juni 2026',
+      image: '/sertifikat/Screenshot 2026-06-25 213105.png',
+      description: 'Sertifikat kompetensi kelulusan untuk kelas Belajar Membuat Aplikasi Web dengan React dari Dicoding',
+    },
   ];
 
   const openModal = (index) => {
