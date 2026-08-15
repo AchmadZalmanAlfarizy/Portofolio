@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 text-gray-400 mb-2">
-              <span>© {currentYear} Built with</span>
+              <span>© {currentYear}</span>
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 0.6, repeat: Infinity }}

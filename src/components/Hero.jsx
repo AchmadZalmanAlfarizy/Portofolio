@@ -96,7 +96,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl blur-3xl opacity-30 animate-float" />
               <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-1 overflow-hidden">
                 <div className="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img src="/zalman.png" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover" />
+                  <img src="/zalmanfoto.jpeg" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
