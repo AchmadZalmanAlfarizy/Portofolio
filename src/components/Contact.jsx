@@ -140,7 +140,7 @@ export default function Contact() {
             Mari bersama-sama menciptakan solusi web yang inovatif dan memberikan dampak positif.
           </p>
           <motion.a
-            href="mailto:achmadzalman@example.com"
+            href="mailto:achmadzalman@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 btn-primary text-lg"
