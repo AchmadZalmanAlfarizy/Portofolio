@@ -35,6 +35,13 @@ export default function Sertifikat() {
       image: '/sertifikat/Screenshot 2026-06-25 213105.png',
       description: 'Sertifikat kompetensi kelulusan untuk kelas Belajar Membuat Aplikasi Web dengan React dari Dicoding',
     },
+    {
+      title: 'Helden 72 - 72-Hour Hackathon',
+      issuer: 'Helden Inc.',
+      date: '2026',
+      image: '/sertifikat/helden72.png',
+      description: 'Sertifikat partisipasi dalam Helden 72, hackathon 72 jam untuk merealisasikan ide dari commit pertama hingga pengiriman aplikasi (shipped build)',
+    },
   ];
 
   const openModal = (index) => {

@@ -75,8 +75,8 @@ export default function Hero() {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="/CV ACHMAD ZALMAN ALFARIZY (1).pdf"
-                download
+                href="/CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
+                download="CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
                 className="btn-secondary flex items-center justify-center gap-2"
               >
                 <Download size={20} />
