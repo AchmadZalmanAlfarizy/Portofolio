@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,21 +18,12 @@ export default function Footer() {
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
               Achmad Zalman Alfarizy
             </h3>
-            <p className="text-gray-400 text-sm">Web Developer & Informatics Student</p>
+            <p className="text-gray-400 text-sm">Web Developer & Sarjana Komputer</p>
           </div>
 
           {/* Copyright */}
           <div className="text-center">
-            <div className="flex items-center justify-center gap-2 text-gray-400 mb-2">
-              <span>© {currentYear}</span>
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 0.6, repeat: Infinity }}
-              >
-                <Heart size={16} className="text-red-500 fill-red-500" />
-              </motion.span>
-              <span>using React & Tailwind</span>
-            </div>
+            <p className="text-gray-400 mb-1">© {currentYear} Achmad Zalman Alfarizy</p>
             <p className="text-gray-500 text-sm">All rights reserved</p>
           </div>
 

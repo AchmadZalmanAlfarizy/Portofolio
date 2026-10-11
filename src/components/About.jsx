@@ -55,7 +55,7 @@ export default function About() {
               variants={itemVariants}
               className="text-gray-300 text-lg leading-relaxed mb-6"
             >
-              Saya adalah seorang Mahasiswa Informatika dengan passion terhadap pengembangan web.
+              Saya adalah seorang Sarjana Komputer dengan passion terhadap pengembangan web.
               Melalui pengalaman belajar dan proyek-proyek praktis, saya telah mengembangkan keahlian
               dalam membangun aplikasi web yang robust dan user-friendly.
             </motion.p>

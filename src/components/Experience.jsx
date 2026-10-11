@@ -122,7 +122,7 @@ export default function Experience() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h4 className="text-xl font-semibold text-white mb-2">Studi Formal</h4>
-              <p className="text-gray-300">Mahasiswa Informatika</p>
+              <p className="text-gray-300">Sarjana Komputer</p>
               <p className="text-gray-400 text-sm">Fokus pada Web Development & System Architecture</p>
             </div>
             <div>

@@ -58,7 +58,7 @@ export default function Hero() {
               variants={textVariants}
               className="text-gray-400 text-sm sm:text-lg leading-relaxed mb-8"
             >
-              Mahasiswa Informatika dengan pengalaman dalam pengembangan web berbasis Laravel dan React.
+              Sarjana Komputer dengan pengalaman dalam pengembangan web berbasis Laravel dan React.
               Terbiasa membangun sistem, memperbaiki bug, serta mengembangkan fitur sesuai kebutuhan pengguna.
             </motion.p>
 
@@ -77,6 +77,8 @@ export default function Hero() {
               <a
                 href="/CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
                 download="CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary flex items-center justify-center gap-2"
               >
                 <Download size={20} />
