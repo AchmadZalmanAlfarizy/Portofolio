@@ -303,13 +303,6 @@ export default function Projects() {
                 <X size={24} className="text-white" />
               </button>
 
-              {/* Project Title */}
-              <div className="absolute top-4 left-4 z-10 bg-slate-900/80 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <h3 className="text-xl font-bold text-white">{currentProject.title}</h3>
-                <p className="text-sm text-gray-400">
-                  {currentImageIndex + 1} / {currentProject.screenshots.length}
-                </p>
-              </div>
 
               {/* Image Display */}
               <div className="relative aspect-video bg-slate-950 flex items-center justify-center">
