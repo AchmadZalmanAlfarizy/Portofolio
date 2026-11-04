@@ -15,6 +15,13 @@ export default function Sertifikat() {
       description: 'Sertifikat pelatihan Fundamental UI/UX dan Design Thinking dari PT Digital Solusi Master',
     },
     {
+      title: 'CCNAv7: Switching, Routing, and Wireless Essentials',
+      issuer: 'Cisco Networking Academy',
+      date: '02 Februari 2024',
+      image: '/sertifikat/ccna.jpg',
+      description: 'Sertifikat penyelesaian CCNAv7: Switching, Routing, and Wireless Essentials melalui program Cisco Networking Academy',
+    },
+    {
       title: 'Belajar Membuat Front-End Web untuk Pemula',
       issuer: 'Dicoding Indonesia',
       date: '24 Juni 2026',
@@ -38,7 +45,7 @@ export default function Sertifikat() {
     {
       title: 'Helden 72 - 72-Hour Hackathon',
       issuer: 'Helden Inc.',
-      date: '2026',
+      date: '31 Juli 2026',
       image: '/sertifikat/helden72.png',
       description: 'Sertifikat partisipasi dalam Helden 72, hackathon 72 jam untuk merealisasikan ide dari commit pertama hingga pengiriman aplikasi (shipped build)',
     },
