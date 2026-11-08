@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -31,7 +34,7 @@ export default function Hero() {
               variants={textVariants}
               className="mb-6"
             >
-              <span className="text-blue-400 font-semibold">Welcome to my portfolio 👋</span>
+              <span className="text-blue-400 font-semibold">{t.hero.welcome}</span>
             </motion.div>
 
             <motion.h1
@@ -39,7 +42,7 @@ export default function Hero() {
               variants={textVariants}
               className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight"
             >
-              Hi, I'm{' '}
+              {t.hero.greeting}{' '}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 Achmad Zalman Alfarizy
               </span>
@@ -48,9 +51,9 @@ export default function Hero() {
             <motion.p
               custom={2}
               variants={textVariants}
-              className="text-lg sm:text-xl text-gray-300 mb-6"
+              className="text-lg sm:text-xl text-gray-300 mb-6 font-medium"
             >
-              Informatics Student | Web Developer
+              {t.hero.role}
             </motion.p>
 
             <motion.p
@@ -58,8 +61,7 @@ export default function Hero() {
               variants={textVariants}
               className="text-gray-400 text-sm sm:text-lg leading-relaxed mb-8"
             >
-              Sarjana Komputer dengan pengalaman dalam pengembangan web berbasis Laravel dan React.
-              Terbiasa membangun sistem, memperbaiki bug, serta mengembangkan fitur sesuai kebutuhan pengguna.
+              {t.hero.description}
             </motion.p>
 
             <motion.div
@@ -69,9 +71,9 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="btn-primary flex items-center justify-center gap-2 group"
+                className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group"
               >
-                View Projects
+                {t.hero.viewProjects}
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -79,10 +81,10 @@ export default function Hero() {
                 download="CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary flex items-center justify-center gap-2"
+                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2"
               >
                 <Download size={20} />
-                Download CV
+                {t.hero.downloadCv}
               </a>
             </motion.div>
           </motion.div>

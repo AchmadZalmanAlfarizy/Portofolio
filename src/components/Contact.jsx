@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Code, Send, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const InstagramIcon = ({ size = 24, className = "" }) => (
   <svg
@@ -20,6 +21,8 @@ const InstagramIcon = ({ size = 24, className = "" }) => (
 );
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   const contactLinks = [
     {
       icon: <Mail size={24} />,
@@ -84,10 +87,13 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Connect</span>
+            {t.contact.title}{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              {t.contact.titleHighlight}
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Saya terbuka untuk diskusi, kolaborasi, atau kesempatan baru. Jangan ragu untuk menghubungi saya!
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+            {t.contact.subtitle}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mx-auto mt-4" />
         </motion.div>
@@ -100,43 +106,42 @@ export default function Contact() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
-          {contactLinks.map((contact, index) => (
+          {contactLinks.map((contact) => (
             <motion.a
               key={contact.label}
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
               variants={itemVariants}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="h-full bg-gradient-to-br from-blue-600/5 to-cyan-600/5 border border-blue-600/20 rounded-2xl p-8 card-hover flex flex-col items-center text-center relative overflow-hidden">
-                {/* Background Gradient */}
+              <div className="h-full bg-gradient-to-br from-blue-600/5 to-cyan-600/5 border border-blue-600/20 rounded-2xl p-6 sm:p-8 card-hover flex flex-col items-center text-center relative overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${contact.color} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`} />
 
                 {/* Icon */}
                 <motion.div
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className={`text-4xl mb-4 relative z-10 p-4 rounded-xl bg-gradient-to-br ${contact.color} text-white`}
+                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  className={`text-3xl sm:text-4xl mb-4 relative z-10 p-4 rounded-xl bg-gradient-to-br ${contact.color} text-white shadow-lg`}
                 >
                   {contact.icon}
                 </motion.div>
 
                 {/* Label */}
-                <h3 className="text-xl font-bold text-white mb-2 relative z-10">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 relative z-10">
                   {contact.label}
                 </h3>
 
                 {/* Value */}
-                <p className="text-gray-400 text-sm mb-4 relative z-10 break-all">
+                <p className="text-gray-400 text-xs sm:text-sm mb-4 relative z-10 break-all font-mono">
                   {contact.value}
                 </p>
 
                 {/* Arrow */}
                 <motion.div
-                  className="text-blue-400 relative z-10"
+                  className="text-cyan-400 relative z-10 mt-auto"
                   initial={{ x: 0 }}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ x: 4 }}
                 >
                   <ArrowRight size={20} />
                 </motion.div>
@@ -147,36 +152,40 @@ export default function Contact() {
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-600/30 rounded-3xl p-12 text-center"
+          className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-600/30 rounded-3xl p-8 sm:p-12 text-center"
         >
-          <h3 className="text-3xl font-bold mb-4">Siap untuk Berkolaborasi?</h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
-            Mari bersama-sama menciptakan solusi web yang inovatif dan memberikan dampak positif.
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+            {t.contact.ctaTitle}
+          </h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            {t.contact.ctaSubtitle}
           </p>
           <motion.a
-            href="mailto:achmadzalman@gmail.com"
+            href="mailto:azalmana27@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 btn-primary text-lg"
+            className="inline-flex items-center gap-2 btn-primary text-base sm:text-lg"
           >
-            Hubungi Saya Sekarang
-            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+            {t.contact.ctaBtn}
+            <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
 
-        {/* Social Links - Alternative */}
+        {/* Social Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 mb-6">Atau Follow di Social Media Saya</p>
+          <p className="text-gray-400 mb-6 text-sm sm:text-base">
+            {t.contact.socialTitle}
+          </p>
           <div className="flex justify-center gap-4">
             {contactLinks.slice(1).map((contact) => (
               <motion.a
@@ -184,9 +193,10 @@ export default function Contact() {
                 href={contact.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileHover={{ scale: 1.2, rotate: 6 }}
                 whileTap={{ scale: 0.9 }}
-                className={`p-4 rounded-full bg-gradient-to-br ${contact.color} text-white hover:shadow-xl transition-shadow`}
+                className={`p-3.5 sm:p-4 rounded-full bg-gradient-to-br ${contact.color} text-white hover:shadow-xl transition-shadow`}
+                aria-label={contact.label}
               >
                 {contact.icon}
               </motion.a>

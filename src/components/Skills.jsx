@@ -1,28 +1,8 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: '🎨',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'],
-    },
-    {
-      title: 'Backend',
-      icon: '⚙️',
-      skills: ['PHP', 'Laravel', 'RESTful API'],
-    },
-    {
-      title: 'Database',
-      icon: '💾',
-      skills: ['MySQL', 'Database Design', 'Query Optimization'],
-    },
-    {
-      title: 'Tools',
-      icon: '🛠️',
-      skills: ['Git', 'GitHub', 'VS Code', 'Postman'],
-    },
-  ];
+  const { t } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,7 +21,7 @@ export default function Skills() {
   };
 
   return (
-    <section className="py-20">
+    <section id="skills" className="py-20">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +31,10 @@ export default function Skills() {
           className="mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-2">
-            My <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Skills</span>
+            {t.skills.title}{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              {t.skills.titleHighlight}
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full" />
         </motion.div>
@@ -63,24 +46,26 @@ export default function Skills() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {skillCategories.map((category, index) => (
+          {t.skills.categories.map((category) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border border-blue-600/20 rounded-2xl p-8 card-hover"
+              whileHover={{ y: -8 }}
+              className="bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 rounded-2xl p-6 sm:p-8 card-hover"
             >
-              <div className="text-5xl mb-4">{category.icon}</div>
-              <h3 className="text-2xl font-bold mb-4 text-blue-400">{category.title}</h3>
-              <div className="space-y-3">
+              <div className="text-4xl sm:text-5xl mb-4">{category.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-blue-400">
+                {category.title}
+              </h3>
+              <div className="space-y-2.5">
                 {category.skills.map((skill) => (
                   <motion.div
                     key={skill}
-                    whileHover={{ x: 5 }}
-                    className="flex items-center gap-2 text-gray-300"
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-2 text-gray-300 text-sm sm:text-base"
                   >
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                    {skill}
+                    <span className="w-2 h-2 bg-cyan-400 rounded-full flex-shrink-0" />
+                    <span>{skill}</span>
                   </motion.div>
                 ))}
               </div>

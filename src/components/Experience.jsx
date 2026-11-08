@@ -1,89 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, Award, GraduationCap, Calendar, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Award, Calendar, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('all');
-
-  const experiences = [
-    {
-      id: 'dsm-group',
-      category: 'work',
-      title: 'Fullstack Developer (Internship)',
-      company: 'DSM Group (Software House)',
-      period: 'Juni 2025 – Desember 2025',
-      badge: 'Pengalaman Kerja',
-      badgeColor: 'from-blue-500/20 to-cyan-500/20 text-cyan-300 border-cyan-500/30',
-      icon: <Briefcase className="w-6 h-6" />,
-      description:
-        'Mengembangkan dan memelihara aplikasi web berbasis Laravel dan MySQL, mencakup implementasi backend yang aman, optimasi basis data, hingga integrasi antarmuka pengguna yang responsif.',
-      points: [
-        'Mengembangkan dan memelihara aplikasi web menggunakan Laravel dan MySQL dengan operasi CRUD yang aman, pemrosesan data dinamis, dan integrasi frontend-backend yang lancar.',
-        'Melakukan performance debugging dan profiling query database untuk mempercepat waktu respons data serta meminimalisir latensi server.',
-        'Key Impact: Berperan utama dalam perancangan dan pengembangan modul "di_akad", mendigitalisasi alur administrasi sekolah-sekolah di wilayah Sidoarjo.',
-      ],
-      skills: ['Laravel', 'PHP', 'MySQL', 'Database Profiling', 'CRUD & REST API', 'Clean Code'],
-    },
-    {
-      id: 'padel-garden',
-      category: 'work',
-      title: 'IT Support',
-      company: 'Padel Garden Malang',
-      period: 'Agustus 2025 – September 2025',
-      badge: 'Pengalaman Kerja',
-      badgeColor: 'from-blue-500/20 to-cyan-500/20 text-cyan-300 border-cyan-500/30',
-      icon: <Briefcase className="w-6 h-6" />,
-      description:
-        'Bertanggung jawab dalam pengembangan dan penerapan sistem scoring turnamen berbasis web, pemeliharaan live website, serta troubleshooting sistem secara real-time selama pertandingan.',
-      points: [
-        'Berkontribusi dalam tim IT pada pengembangan dan penerapan sistem penilaian (scoring system) berbasis web dan platform manajemen pemain untuk Padel Garden Malang.',
-        'Menangani live website maintenance dan penanganan kendala teknis (real-time troubleshooting) saat pertandingan berlangsung untuk memastikan keandalan sistem tanpa gangguan.',
-        'Mengoptimalkan penjadwalan pertandingan, live score tracking secara langsung, dan tata kelola administrasi data peserta untuk kelancaran turnamen.',
-      ],
-      skills: ['Web-based Scoring System', 'Live Troubleshooting', 'System Maintenance', 'Data Administration'],
-    },
-    {
-      id: 'kkn-umm',
-      category: 'organization',
-      title: 'Ketua KKN (Kuliah Kerja Nyata)',
-      company: 'Program Pengabdian Masyarakat UMM',
-      period: 'Agustus 2024 – September 2024',
-      badge: 'Pengalaman Organisasi',
-      badgeColor: 'from-emerald-500/20 to-teal-500/20 text-emerald-300 border-emerald-500/30',
-      icon: <Award className="w-6 h-6" />,
-      description:
-        'Memimpin inisiatif pengabdian masyarakat multidisiplin tingkat desa, mengoordinasikan hubungan dengan pemerintah lokal, serta memandu program literasi dan solusi teknologi bagi warga.',
-      points: [
-        'Memimpin tim mahasiswa dalam merancang dan mengeksekusi program kerja pengabdian masyarakat yang berorientasi pada kebutuhan warga desa.',
-        'Membangun komunikasi strategis dan koordinasi intensif dengan jajaran perangkat pemerintah desa serta tokoh masyarakat setempat.',
-        'Menginisiasi program literasi digital dan pengembangan solusi teknologi tepat guna guna mendukung administrasi komunitas lokal.',
-      ],
-      skills: ['Leadership', 'Project Coordination', 'Stakeholder Management', 'Public Communication'],
-    },
-    {
-      id: 'pesmaba-umm',
-      category: 'organization',
-      title: 'Liaison Officer (LO)',
-      company: 'Pesmaba UMM (Orientasi Mahasiswa Baru)',
-      period: 'September 2023 – Oktober 2023',
-      badge: 'Pengalaman Organisasi',
-      badgeColor: 'from-emerald-500/20 to-teal-500/20 text-emerald-300 border-emerald-500/30',
-      icon: <Award className="w-6 h-6" />,
-      description:
-        'Memfasilitasi alur komunikasi dan manajemen logistik dalam penyelenggaraan kegiatan Pengenalan Studi Mahasiswa Baru skala universitas.',
-      points: [
-        'Menjadi penghubung utama dan memfasilitasi komunikasi antar divisi panitia serta ribuan mahasiswa baru skala universitas.',
-        'Mengelola alur logistik, time management, dan kedisiplinan alur acara agar seluruh rangkaian kegiatan terlaksana secara terstruktur dan tepat waktu.',
-        'Menangani koordinasi cepat saat terjadi dinamika lapangan untuk menjaga kondusivitas acara.',
-      ],
-      skills: ['Event Management', 'Public Speaking', 'Crisis Coordination', 'Time Management'],
-    },
-  ];
 
   const filteredExperiences =
     activeTab === 'all'
-      ? experiences
-      : experiences.filter((exp) => exp.category === activeTab);
+      ? t.experience.items
+      : t.experience.items.filter((exp) => exp.category === activeTab);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -113,30 +40,30 @@ export default function Experience() {
           className="mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-2">
-            Experience &{' '}
+            {t.experience.title}{' '}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Background
+              {t.experience.titleHighlight}
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mb-4" />
           <p className="text-gray-400 text-base md:text-lg">
-            Rekam jejak pengalaman kerja profesional, kontribusi organisasi, serta latar belakang pendidikan saya.
+            {t.experience.subtitle}
           </p>
         </motion.div>
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-3 mb-10">
           {[
-            { id: 'all', label: 'Semua Pengalaman' },
-            { id: 'work', label: 'Pengalaman Kerja' },
-            { id: 'organization', label: 'Pengalaman Organisasi' },
+            { id: 'all', label: t.experience.tabs.all },
+            { id: 'work', label: t.experience.tabs.work },
+            { id: 'organization', label: t.experience.tabs.organization },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-95 ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25 scale-105'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
                   : 'bg-slate-900/80 text-gray-400 hover:text-white hover:bg-slate-800 border border-slate-800'
               }`}
             >
@@ -166,13 +93,17 @@ export default function Experience() {
                 )}
 
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                  {/* Timeline Circle */}
+                  {/* Timeline Icon */}
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     className="relative flex-shrink-0 hidden md:flex"
                   >
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
-                      {exp.icon}
+                      {exp.category === 'work' ? (
+                        <Briefcase className="w-6 h-6" />
+                      ) : (
+                        <Award className="w-6 h-6" />
+                      )}
                     </div>
                   </motion.div>
 
@@ -183,7 +114,11 @@ export default function Experience() {
                       <div>
                         <div className="flex flex-wrap items-center gap-2 mb-2">
                           <span
-                            className={`text-xs px-3 py-1 rounded-full border bg-gradient-to-r font-medium ${exp.badgeColor}`}
+                            className={`text-xs px-3 py-1 rounded-full border font-medium ${
+                              exp.category === 'work'
+                                ? 'bg-blue-500/20 text-cyan-300 border-cyan-500/30'
+                                : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                            }`}
                           >
                             {exp.badge}
                           </span>
@@ -237,63 +172,6 @@ export default function Experience() {
             ))}
           </motion.div>
         </AnimatePresence>
-
-        {/* Education Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 rounded-2xl p-6 md:p-8"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-600/30">
-              <GraduationCap className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white">Latar Belakang Pendidikan</h3>
-              <p className="text-gray-400 text-sm">Pendidikan formal dan pengembangan keahlian berkelanjutan</p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-5">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs bg-blue-500/20 text-cyan-300 px-2.5 py-0.5 rounded-full border border-blue-500/30 font-semibold">
-                  Pendidikan Formal
-                </span>
-                <span className="text-xs text-gray-400">Sep 2022 – Okt 2026</span>
-              </div>
-              <h4 className="text-lg font-bold text-white mb-1">
-                S1 Teknik Informatika (Sarjana Komputer)
-              </h4>
-              <p className="text-blue-400 font-medium text-sm mb-2">
-                Universitas Muhammadiyah Malang
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Lulus: 2 Oktober 2026. Fokus pada Full-stack Web & Mobile Development, Optimasi Basis Data, serta Perancangan Sistem Terintegrasi.
-              </p>
-            </div>
-
-            <div className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-5">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs bg-cyan-500/20 text-cyan-300 px-2.5 py-0.5 rounded-full border border-cyan-500/30 font-semibold">
-                  Pengembangan Keahlian
-                </span>
-                <span className="text-xs text-gray-400">Berkelanjutan</span>
-              </div>
-              <h4 className="text-lg font-bold text-white mb-1">
-                Pelatihan & Pembelajaran Mandiri
-              </h4>
-              <p className="text-blue-400 font-medium text-sm mb-2">
-                Sertifikasi & Program Industri
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Tersertifikasi dalam CCNAv7 (Cisco), React & Front-End Web (Dicoding), UI/UX Design Training (PT DSM), serta Database Management & Optimization (Lab Informatika UMM).
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

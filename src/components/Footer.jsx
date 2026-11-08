@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,13 +20,13 @@ export default function Footer() {
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
               Achmad Zalman Alfarizy
             </h3>
-            <p className="text-gray-400 text-sm">Web Developer & Sarjana Komputer</p>
+            <p className="text-gray-400 text-sm">{t.footer.tagline}</p>
           </div>
 
           {/* Copyright */}
           <div className="text-center">
             <p className="text-gray-400 mb-1">© {currentYear} Achmad Zalman Alfarizy</p>
-            <p className="text-gray-500 text-sm">All rights reserved</p>
+            <p className="text-gray-500 text-sm">{t.footer.copyright}</p>
           </div>
 
           {/* Scroll to Top */}
@@ -32,7 +34,8 @@ export default function Footer() {
             href="#home"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="p-3 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 text-white hover:shadow-xl transition-shadow"
+            className="p-3 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 text-white hover:shadow-xl transition-shadow cursor-pointer"
+            aria-label="Back to top"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />

@@ -5,10 +5,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-slate-950 text-white;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button, a {
+    touch-action: manipulation;
   }
 }
 
@@ -18,16 +26,31 @@
   }
 
   .btn-primary {
-    @apply px-6 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-300;
+    @apply px-6 py-3 sm:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold transition-all duration-200 cursor-pointer text-center;
   }
 
   .btn-secondary {
-    @apply px-6 py-2 rounded-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold transition-all duration-300;
+    @apply px-6 py-3 sm:py-2.5 rounded-xl border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white active:scale-95 font-semibold transition-all duration-200 cursor-pointer text-center;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-[0.99];
   }
+}
+
+/* Smooth Touch Scrolling for iOS Safari & Android */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar while keeping functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Animation utilities */
@@ -66,67 +89,10 @@ body {
 
 h1,
 h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+  font-family: inherit;
+  font-weight: 700;
 }
 
-h1 {
-  font-size: 32px;
-  margin: 20px 0;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 56px;
-  }
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-}
-
-@media (max-width: 1024px) {
-  h2 {
-    font-size: 20px;
-  }
-}
 p {
   margin: 0;
-}
-
-/* Force mobile responsive styles */
-@media (max-width: 900px) {
-  .grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-  
-  .md\:grid-cols-2 {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (min-width: 901px) {
-  .grid.md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
