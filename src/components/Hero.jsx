@@ -69,41 +69,49 @@ export default function Hero() {
               variants={textVariants}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <a
+              <motion.a
                 href="#projects"
-                className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group shadow-lg shadow-blue-600/20"
               >
                 {t.hero.viewProjects}
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="/CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
                 download="CV_ACHMAD_ZALMAN_ALFARIZY.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 shadow-lg shadow-blue-900/10"
               >
                 <Download size={20} />
                 {t.hero.downloadCv}
-              </a>
+              </motion.a>
             </motion.div>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* Profile Image with Gentle Interactive Hover */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.25, duration: 0.55 }}
             className="flex justify-center flex-1"
           >
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl blur-3xl opacity-30 animate-float" />
-              <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-1 overflow-hidden">
-                <div className="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img src="/zalmanfoto.jpeg" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover" />
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl blur-3xl opacity-35 animate-pulse" />
+              <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-1 overflow-hidden shadow-2xl">
+                <div className="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center overflow-hidden">
+                  <img src="/zalmanfoto.jpeg" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

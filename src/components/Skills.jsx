@@ -50,10 +50,11 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className="bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 rounded-2xl p-6 sm:p-8 card-hover"
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 hover:border-cyan-500/40 rounded-2xl p-6 sm:p-8 card-hover shadow-lg transition-colors"
             >
-              <div className="text-4xl sm:text-5xl mb-4">{category.icon}</div>
+              <div className="text-4xl sm:text-5xl mb-4 select-none">{category.icon}</div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-blue-400">
                 {category.title}
               </h3>
@@ -62,10 +63,11 @@ export default function Skills() {
                   <motion.div
                     key={skill}
                     whileHover={{ x: 4 }}
-                    className="flex items-center gap-2 text-gray-300 text-sm sm:text-base"
+                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-2 text-gray-300 text-sm sm:text-base group cursor-default select-none"
                   >
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full flex-shrink-0" />
-                    <span>{skill}</span>
+                    <span className="w-2 h-2 bg-cyan-400 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="group-hover:text-white transition-colors">{skill}</span>
                   </motion.div>
                 ))}
               </div>

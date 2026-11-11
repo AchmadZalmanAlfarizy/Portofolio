@@ -163,9 +163,13 @@ export default function Sertifikat() {
                 onTouchEnd={handleTouchEnd}
                 className="relative bg-slate-950 flex items-center justify-center min-h-[300px] select-none touch-none"
               >
-                <img
+                <motion.img
+                  key={currentImageIndex}
                   src={certificates[currentImageIndex].image}
                   alt={certificates[currentImageIndex].title}
+                  initial={{ opacity: 0.7, scale: 0.99 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
                   className="w-full max-h-[60dvh] object-contain bg-slate-950 pointer-events-none"
                 />
 

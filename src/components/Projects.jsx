@@ -253,9 +253,13 @@ export default function Projects() {
                 onTouchEnd={handleTouchEnd}
                 className="relative aspect-video sm:aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden touch-none select-none"
               >
-                <img
+                <motion.img
+                  key={currentImageIndex}
                   src={currentProject.screenshots[currentImageIndex]}
                   alt={`${currentProject.title} screenshot ${currentImageIndex + 1}`}
+                  initial={{ opacity: 0.7, scale: 0.99 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
                   className="max-w-full max-h-full object-contain pointer-events-none"
                 />
 

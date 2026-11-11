@@ -51,25 +51,36 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        {/* Filter Tabs with Sliding Motion */}
+        <div className="flex flex-wrap gap-2.5 sm:gap-3 mb-10">
           {[
             { id: 'all', label: t.experience.tabs.all },
             { id: 'work', label: t.experience.tabs.work },
             { id: 'organization', label: t.experience.tabs.organization },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-95 ${
-                activeTab === tab.id
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
-                  : 'bg-slate-900/80 text-gray-400 hover:text-white hover:bg-slate-800 border border-slate-800'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+          ].map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className="relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer active:scale-95 select-none"
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeExperienceTab"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl shadow-lg shadow-blue-500/25"
+                    transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute inset-0 bg-slate-900/80 border border-slate-800 rounded-xl" />
+                )}
+                <span className={`relative z-10 transition-colors ${isActive ? 'text-white font-bold' : 'text-gray-400 hover:text-white'}`}>
+                  {tab.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Timeline List */}
