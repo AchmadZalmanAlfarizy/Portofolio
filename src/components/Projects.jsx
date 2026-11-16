@@ -129,7 +129,13 @@ export default function Projects() {
             >
               {/* Image Area */}
               <div>
-                <div className="h-52 relative overflow-hidden bg-slate-950">
+                <div
+                  onClick={() => openModal(project)}
+                  className={`h-52 relative overflow-hidden bg-slate-950 ${
+                    project.screenshots && project.screenshots.length > 0 ? 'cursor-pointer group/img' : ''
+                  }`}
+                  title={project.screenshots && project.screenshots.length > 0 ? 'Klik untuk melihat galeri foto' : ''}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
@@ -137,6 +143,12 @@ export default function Projects() {
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                  {project.screenshots && project.screenshots.length > 0 && (
+                    <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-xs text-cyan-300 border border-cyan-500/30 px-2.5 py-1 rounded-full flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                      <span>📸</span>
+                      <span>{project.screenshots.length} Foto</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -197,22 +209,34 @@ export default function Projects() {
                     <Code size={18} />
                     <span>{t.projects.githubBtn}</span>
                   </a>
-                  <button
-                    onClick={() => openModal(project)}
-                    disabled={!project.screenshots || project.screenshots.length === 0}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3 sm:py-2.5 px-4 rounded-xl transition-all duration-200 font-semibold text-sm ${
-                      project.screenshots && project.screenshots.length > 0
-                        ? 'bg-cyan-600/20 hover:bg-cyan-600/40 active:scale-95 text-cyan-300 cursor-pointer'
-                        : 'bg-gray-600/20 text-gray-500 cursor-not-allowed'
-                    }`}
-                  >
-                    <ExternalLink size={18} />
-                    <span>
-                      {project.screenshots && project.screenshots.length > 0
-                        ? t.projects.liveBtn
-                        : t.projects.comingSoonBtn}
-                    </span>
-                  </button>
+                  {project.demo ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 sm:py-2.5 px-4 bg-cyan-600/20 hover:bg-cyan-600/40 active:scale-95 text-cyan-300 rounded-xl transition-all duration-200 font-semibold text-sm cursor-pointer"
+                    >
+                      <ExternalLink size={18} />
+                      <span>{t.projects.liveBtn}</span>
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => openModal(project)}
+                      disabled={!project.screenshots || project.screenshots.length === 0}
+                      className={`flex-1 flex items-center justify-center gap-2 py-3 sm:py-2.5 px-4 rounded-xl transition-all duration-200 font-semibold text-sm ${
+                        project.screenshots && project.screenshots.length > 0
+                          ? 'bg-cyan-600/20 hover:bg-cyan-600/40 active:scale-95 text-cyan-300 cursor-pointer'
+                          : 'bg-gray-600/20 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      <ExternalLink size={18} />
+                      <span>
+                        {project.screenshots && project.screenshots.length > 0
+                          ? t.projects.liveBtn
+                          : t.projects.comingSoonBtn}
+                      </span>
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -237,14 +261,28 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-6xl w-full max-h-[92dvh] bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col"
             >
-              {/* Close Button - Optimized 44px Touch Target for Android/iOS */}
-              <button
-                onClick={closeModal}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-11 h-11 flex items-center justify-center bg-red-600/90 active:bg-red-700 hover:bg-red-600 text-white rounded-full shadow-xl transition-all active:scale-90 cursor-pointer"
-                aria-label="Close Preview"
-              >
-                <X size={22} />
-              </button>
+              {/* Top Action Buttons */}
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 flex items-center gap-2">
+                {currentProject.demo && (
+                  <a
+                    href={currentProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3.5 py-2 bg-cyan-600/90 active:bg-cyan-700 hover:bg-cyan-600 text-white rounded-full shadow-xl transition-all active:scale-95 text-xs sm:text-sm font-semibold cursor-pointer backdrop-blur-sm"
+                  >
+                    <ExternalLink size={16} />
+                    <span>{t.projects.liveBtn}</span>
+                  </a>
+                )}
+                {/* Close Button - Optimized 44px Touch Target for Android/iOS */}
+                <button
+                  onClick={closeModal}
+                  className="w-11 h-11 flex items-center justify-center bg-red-600/90 active:bg-red-700 hover:bg-red-600 text-white rounded-full shadow-xl transition-all active:scale-90 cursor-pointer"
+                  aria-label="Close Preview"
+                >
+                  <X size={22} />
+                </button>
+              </div>
 
               {/* Image Display Area with Touch Swipe Support */}
               <div

@@ -101,6 +101,20 @@ export const translations = {
       comingSoonBtn: 'Coming Soon',
       items: [
         {
+          id: 'catering',
+          title: 'Website Catering & Food Service La Zarena',
+          description:
+            'Website profil usaha katering makanan tradisional dan nusantara (La Zarena) dengan katalog paket menu prasmanan, layanan katering acara (pernikahan, gathering, event), galeri hidangan, serta pemesanan praktis terintegrasi WhatsApp.',
+          tech: ['React', 'Tailwind CSS', 'Vercel'],
+          image: '/catering/image.png',
+          features: ['Katalog Menu Masakan Nusantara', 'Pemesanan Langsung WhatsApp', 'Paket Prasmanan & Acara'],
+          github: 'https://github.com/AchmadZalmanAlfarizy/lazarena-catering',
+          demo: 'https://lazarena-catering.vercel.app/',
+          screenshots: [
+            '/catering/image.png',
+          ],
+        },
+        {
           id: 'pangedisan',
           title: 'Website Informasi Desa Pangedisan',
           description:
@@ -441,6 +455,20 @@ export const translations = {
       liveBtn: 'Live Preview',
       comingSoonBtn: 'Coming Soon',
       items: [
+        {
+          id: 'catering',
+          title: 'La Zarena Catering & Food Service Website',
+          description:
+            'A modern web portal for an authentic Indonesian catering and food service (La Zarena). Features full buffet and meal package catalogs, event catering inquiries (weddings, corporate, gatherings), culinary galleries, and seamless WhatsApp ordering integration.',
+          tech: ['React', 'Tailwind CSS', 'Vercel'],
+          image: '/catering/image.png',
+          features: ['Indonesian Cuisine Menu Catalog', 'Direct WhatsApp Ordering', 'Buffet & Event Catering Packages'],
+          github: 'https://github.com/AchmadZalmanAlfarizy/lazarena-catering',
+          demo: 'https://lazarena-catering.vercel.app/',
+          screenshots: [
+            '/catering/image.png',
+          ],
+        },
         {
           id: 'pangedisan',
           title: 'Pagedisan Village Information System',
