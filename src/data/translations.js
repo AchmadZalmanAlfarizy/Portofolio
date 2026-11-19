@@ -116,7 +116,7 @@ export const translations = {
         },
         {
           id: 'wedding',
-          title: 'Website Undangan Pernikahan Digital (Rifal & Asti)',
+          title: 'Website Undangan Pernikahan Digital',
           description:
             'Website undangan pernikahan digital interaktif dan responsif dengan fitur buka amplop undangan beranimasi, pemutar musik latar otomatis, hitung mundur (countdown timer), rincian akad & resepsi, buku tamu digital (RSVP), amplop digital (hadiah), serta integrasi Google Maps.',
           tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
@@ -485,7 +485,7 @@ export const translations = {
         },
         {
           id: 'wedding',
-          title: 'Digital Wedding Invitation Web App (Rifal & Asti)',
+          title: 'Digital Wedding Invitation Web App',
           description:
             'An interactive and responsive digital wedding invitation platform featuring an animated envelope opening, background music player, event countdown timer, ceremony & reception details, digital guestbook (RSVP), cashless gift envelope, and Google Maps integration.',
           tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
