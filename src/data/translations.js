@@ -41,7 +41,7 @@ export const translations = {
         'Client Communication & Technical Analysis',
       ],
       stats: {
-        projectsCount: '8+',
+        projectsCount: '9+',
         projectsLabel: 'Proyek Selesai',
         yearsCount: '3+',
         yearsLabel: 'Tahun Tech Stack',
@@ -112,6 +112,20 @@ export const translations = {
           demo: 'https://lazarena-catering.vercel.app/',
           screenshots: [
             '/catering/image.png',
+          ],
+        },
+        {
+          id: 'wedding',
+          title: 'Website Undangan Pernikahan Digital (Rifal & Asti)',
+          description:
+            'Website undangan pernikahan digital interaktif dan responsif dengan fitur buka amplop undangan beranimasi, pemutar musik latar otomatis, hitung mundur (countdown timer), rincian akad & resepsi, buku tamu digital (RSVP), amplop digital (hadiah), serta integrasi Google Maps.',
+          tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+          image: '/wedding/image.png',
+          features: ['Animasi Buka Undangan & Musik', 'Countdown & Peta Lokasi', 'Buku Tamu Digital (RSVP) & Hadiah'],
+          github: 'https://github.com/AchmadZalmanAlfarizy/weddinginvitation',
+          demo: 'https://weddinginvitation-drab-two.vercel.app/',
+          screenshots: [
+            '/wedding/image.png',
           ],
         },
         {
@@ -396,7 +410,7 @@ export const translations = {
         'Client Communication & Technical Analysis',
       ],
       stats: {
-        projectsCount: '8+',
+        projectsCount: '9+',
         projectsLabel: 'Delivered Projects',
         yearsCount: '3+',
         yearsLabel: 'Years Tech Stack',
@@ -467,6 +481,20 @@ export const translations = {
           demo: 'https://lazarena-catering.vercel.app/',
           screenshots: [
             '/catering/image.png',
+          ],
+        },
+        {
+          id: 'wedding',
+          title: 'Digital Wedding Invitation Web App (Rifal & Asti)',
+          description:
+            'An interactive and responsive digital wedding invitation platform featuring an animated envelope opening, background music player, event countdown timer, ceremony & reception details, digital guestbook (RSVP), cashless gift envelope, and Google Maps integration.',
+          tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+          image: '/wedding/image.png',
+          features: ['Interactive Envelope & Music', 'Event Countdown & Maps Navigation', 'Digital RSVP & Cashless Gift'],
+          github: 'https://github.com/AchmadZalmanAlfarizy/weddinginvitation',
+          demo: 'https://weddinginvitation-drab-two.vercel.app/',
+          screenshots: [
+            '/wedding/image.png',
           ],
         },
         {
