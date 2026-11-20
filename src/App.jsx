@@ -1,4 +1,7 @@
+import { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { LanguageProvider } from './context/LanguageContext';
+import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,20 +14,36 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const [ready, setReady] = useState(false);
+  const handleDone = useCallback(() => setReady(true), []);
+
+  // Lock scroll while the intro is showing
+  useEffect(() => {
+    document.body.style.overflow = ready ? '' : 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [ready]);
+
   return (
     <LanguageProvider>
-      <div className="bg-slate-950 text-white min-h-screen">
-        <Navbar />
-        <Hero />
-        <About />
-        <Education />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Sertifikat />
-        <Contact />
-        <Footer />
-      </div>
+      <AnimatePresence>
+        {!ready && <SplashScreen key="splash" onDone={handleDone} />}
+      </AnimatePresence>
+      {ready && (
+        <div className="bg-slate-950 text-white min-h-screen">
+          <Navbar />
+          <Hero />
+          <About />
+          <Education />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Sertifikat />
+          <Contact />
+          <Footer />
+        </div>
+      )}
     </LanguageProvider>
   );
 }

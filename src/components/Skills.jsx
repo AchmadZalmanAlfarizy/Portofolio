@@ -44,15 +44,15 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-6 gap-6"
         >
-          {t.skills.categories.map((category) => (
+          {t.skills.categories.map((category, idx) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 hover:border-cyan-500/40 rounded-2xl p-6 sm:p-8 card-hover shadow-lg transition-colors"
+              className={`${idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3'} ${idx === 4 ? 'md:col-span-2' : ''} bg-gradient-to-br from-blue-600/10 via-slate-900/60 to-cyan-600/10 border border-blue-600/20 hover:border-cyan-500/40 rounded-2xl p-6 sm:p-8 card-hover shadow-lg transition-colors`}
             >
               <div className="text-4xl sm:text-5xl mb-4 select-none">{category.icon}</div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-blue-400">

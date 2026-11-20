@@ -1,9 +1,19 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
+  const roles = t.hero.roles || [];
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    if (roles.length < 2) return undefined;
+    const timer = setInterval(() => setRoleIndex((i) => (i + 1) % roles.length), 2600);
+    return () => clearInterval(timer);
+  }, [roles.length]);
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -29,14 +39,6 @@ export default function Hero() {
         <div className="flex flex-col-reverse md:flex-row gap-12 items-center">
           {/* Text Content */}
           <motion.div initial="hidden" animate="visible" className="flex-1">
-            <motion.div
-              custom={0}
-              variants={textVariants}
-              className="mb-6"
-            >
-              <span className="text-blue-400 font-semibold">{t.hero.welcome}</span>
-            </motion.div>
-
             <motion.h1
               custom={1}
               variants={textVariants}
@@ -55,6 +57,30 @@ export default function Hero() {
             >
               {t.hero.role}
             </motion.p>
+
+            {/* Rotating role pill */}
+            <motion.div custom={2.5} variants={textVariants} className="mb-6">
+              <div className="inline-flex items-center gap-3 px-4 h-11 rounded-full border border-cyan-500/20 bg-slate-900/50 backdrop-blur-md shadow-lg shadow-cyan-900/10">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-60 animate-ping" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
+                </span>
+                <span className="relative inline-block h-6 min-w-[11.5rem] overflow-hidden text-sm sm:text-base font-semibold">
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={roleIndex}
+                      initial={reduceMotion ? { opacity: 0 } : { y: 18, opacity: 0, filter: 'blur(4px)' }}
+                      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                      exit={reduceMotion ? { opacity: 0 } : { y: -18, opacity: 0, filter: 'blur(4px)' }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                      className="absolute inset-0 whitespace-nowrap bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent"
+                    >
+                      {roles[roleIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </div>
+            </motion.div>
 
             <motion.p
               custom={3}
@@ -108,7 +134,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl blur-3xl opacity-35 animate-pulse" />
               <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-1 overflow-hidden shadow-2xl">
                 <div className="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center overflow-hidden">
-                  <img src="/zalmanfoto.jpeg" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  <img src="/zalmanfoto.jpeg?v=2" alt="Achmad Zalman Alfarizy" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105" />
                 </div>
               </div>
             </motion.div>

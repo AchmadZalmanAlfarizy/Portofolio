@@ -13,7 +13,8 @@ export const translations = {
     hero: {
       welcome: 'Selamat datang di portofolio saya 👋',
       greeting: "Halo, Saya",
-      role: 'Sarjana Komputer | Fullstack Web & Mobile Developer',
+      role: 'Sarjana Komputer | Software Developer & Quality Assurance',
+      roles: ['Fullstack Web Developer', 'Mobile App Developer', 'Quality Assurance'],
       description:
         'Sarjana Komputer lulusan Universitas Muhammadiyah Malang dengan spesialisasi pengembangan web dan aplikasi mobile menggunakan Laravel, React, Flutter, dan MySQL. Berfokus pada perancangan sistem yang robust, optimasi query database, dan pengembangan solusi digital berkinerja tinggi.',
       viewProjects: 'Lihat Proyek',
@@ -83,6 +84,11 @@ export const translations = {
           title: 'Database',
           icon: '💾',
           skills: ['MySQL', 'Query Optimization', 'Database Indexing', 'Normalization'],
+        },
+        {
+          title: 'Quality Assurance',
+          icon: '🧪',
+          skills: ['Manual Testing', 'Test Case & Test Plan', 'Bug Reporting & Tracking', 'API Testing (Postman)', 'Regression & UAT'],
         },
         {
           title: 'Tools & Workflow',
@@ -382,7 +388,8 @@ export const translations = {
     hero: {
       welcome: 'Welcome to my portfolio 👋',
       greeting: "Hi, I'm",
-      role: 'Computer Science Graduate | Fullstack Web & Mobile Developer',
+      role: 'Computer Science Graduate | Software Developer & Quality Assurance',
+      roles: ['Fullstack Web Developer', 'Mobile App Developer', 'Quality Assurance'],
       description:
         'Informatics graduate from Universitas Muhammadiyah Malang specialized in full-stack web and mobile application development using Laravel, React, Flutter, and MySQL. Proven track record in building robust architectures, database query optimization, and high-performance digital solutions.',
       viewProjects: 'View Projects',
@@ -452,6 +459,11 @@ export const translations = {
           title: 'Database',
           icon: '💾',
           skills: ['MySQL', 'Query Optimization', 'Database Indexing', 'Normalization'],
+        },
+        {
+          title: 'Quality Assurance',
+          icon: '🧪',
+          skills: ['Manual Testing', 'Test Case & Test Plan', 'Bug Reporting & Tracking', 'API Testing (Postman)', 'Regression & UAT'],
         },
         {
           title: 'Tools & Workflow',
