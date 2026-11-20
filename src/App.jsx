@@ -14,7 +14,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [ready, setReady] = useState(false);
+  const [mounted, setMounted] = useState(false); // site rendered (just before the curtain lifts)
+  const [ready, setReady] = useState(false); // splash finished
+
+  const handlePrepare = useCallback(() => setMounted(true), []);
   const handleDone = useCallback(() => setReady(true), []);
 
   // Lock scroll while the intro is showing
@@ -28,9 +31,9 @@ function App() {
   return (
     <LanguageProvider>
       <AnimatePresence>
-        {!ready && <SplashScreen key="splash" onDone={handleDone} />}
+        {!ready && <SplashScreen key="splash" onPrepare={handlePrepare} onDone={handleDone} />}
       </AnimatePresence>
-      {ready && (
+      {mounted && (
         <div className="bg-slate-950 text-white min-h-screen">
           <Navbar />
           <Hero />

@@ -96,3 +96,36 @@ h2 {
 p {
   margin: 0;
 }
+
+/* Splash screen (compositor-friendly animations) */
+@keyframes splash-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.9; }
+}
+@keyframes splash-flame {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.35); }
+}
+@keyframes splash-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); }
+  50% { transform: translate3d(0, -12px, 0) rotate(8deg); }
+}
+
+.splash-star {
+  animation: splash-twinkle var(--d, 2.5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: opacity;
+}
+.splash-flame {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: splash-flame 0.45s ease-in-out infinite;
+}
+.splash-float {
+  animation: splash-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-star, .splash-flame, .splash-float { animation: none; }
+}
